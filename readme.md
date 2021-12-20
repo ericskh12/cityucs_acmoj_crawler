@@ -9,9 +9,13 @@ Python 3.8
 
 ## Required packages
 Scrapy
+
 Selenium
+
 time
+
 os
+
 Chrome webdriver for selenium
 
 # Usage
