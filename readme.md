@@ -29,10 +29,10 @@ Step4: In terminal, run scrapy crawl solutions in the first /crawler/ directory 
 # Commands
 You should run all commands in terminal and under first /crawler/ directory.
 
-##Crawl completed questions pdf
+## Crawl completed questions pdf
 scrapy crawl questions
 
-##Crawl personal best submissions
+## Crawl personal best submissions
 scrapy crawl solutions
 
 # Configurations
