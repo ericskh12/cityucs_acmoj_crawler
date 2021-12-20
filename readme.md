@@ -36,6 +36,9 @@ scrapy crawl questions
 scrapy crawl solutions
 
 # Configurations
+
+All configurations are in crawler/crawler/settings.py
+
 ```
 # Username for login
 USERNAME = '51234567'
