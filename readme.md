@@ -1,64 +1,64 @@
 # CityU CS ACM Online Judge Crawler
 
 This is a web cralwer to crawl questions and personal submissions on CityU CS ACM Online Judge System(Requires school VPN): http://acm.cs.cityu.edu.hk/oj2/index.php/.
-CityU CS ACM Online Judge System is for data structure and programming courses CS3334 and CS3391.
+
+CityU CS ACM Online Judge System is for data structures and programming courses CS2334, CS3334 and CS3391.
 
 # Environment
 
-Python 3.8
-
-## Required packages
-Scrapy
-
-Selenium
-
-time
-
-os
-
-Chrome webdriver for selenium
+Tested with Python 3.9, should work with higher versions
 
 # Usage
 
-Step0: Install all required packages and chrome webdriver(There is already one copy in this project, you can modify settings.py to redirect)
+Step 1: Put all files into the same folder
 
-Step1: Download the folder
+Step 2: In terminal, execute ```pip install -r requirements.txt``` to install all required packages
 
-Step2: Edit the configuration settings in crawler/crawler/settings.py
+Step 3: Edit configurations in ```configfile.py```
 
-Step3: In terminal,	run scrapy crawl questions in the first /crawler/ directory (Do not run in the child crawler folder!)
+Step 4: Before crawling, make sure your network environment has access to the online judge
 
-Step4: In terminal, run scrapy crawl solutions in the first /crawler/ directory (Do not run in the child crawler folder!)
+Step 5: Change your directory to the first /crawler/ folder 
+```
+cd crawler
+```
+
+Step 6: To download your questions, execute the command in the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
+```
+scrapy crawl questions
+```
+
+Step 7: To download your submissions, execute the command in the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
+```
+scrapy crawl solutions
+```
+
+After execution, your questions and submissions should now be downloaded in ```downloaded_files``` folder
 
 # Commands
 You should run all commands in terminal and under first /crawler/ directory.
 
 ## Crawl completed questions pdf
+```
 scrapy crawl questions
+```
 
 ## Crawl personal best submissions
+```
 scrapy crawl solutions
+```
 
 # Configurations
 
-All configurations are in crawler/crawler/settings.py
+All configurations are in ```configfile.py```
 
 ```
+# Config for CityU CS ACM Online Judge Crawler
+
 # Username for login
 USERNAME = '51234567'
 # Password for login
-PASSWORD = '123'
-# Personal statictics to crawl (Change to your personal statictics link)
+PASSWORD = 'yourpassword'
+# Personal statictics to crawl (set to your own link)
 PERSONAL_STATISTICS_URL = 'http://acm.cs.cityu.edu.hk/oj2/index.php/u/56614778'
-# Directory to place downloaded files
-DOWNLOAD_DIRECTORY = 'C:\\Users\\ABC\\cityucs_acmoj_crawler\\downloaded_files'
-# Location of selenium chrome web driver (The version should match your personal chrome browser)
-# Download here if you don't have the driver on your system: https://chromedriver.chromium.org/downloads
-SELENIUM_CHROME_WEB_DRIVER = 'C:\\Users\\ABC\\git\\cityucs_acmoj_crawler\\chromedriver.exe'
-
-# URL used for the crawler
-# Shouldn't modify anything here if the url of Cityu Online Judge doesn't change
-CITU_OJ_URL = 'http://acm.cs.cityu.edu.hk'
-CITYU_OJ_LOGIN_URL = 'http://acm.cs.cityu.edu.hk/oj2/index.php/account/login'
-CITYU_OJ_SUBMISSION_URL = 'http://acm.cs.cityu.edu.hk/oj2/index.php/submission/'
 ```

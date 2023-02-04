@@ -20,8 +20,9 @@ class QuotesSpider(scrapy.Spider):
         chromeOptions = webdriver.ChromeOptions()
         prefs = {"download.default_directory" : self.download_directory}
         chromeOptions.add_experimental_option("prefs",prefs)
-        chromedriver = settings.get('SELENIUM_CHROME_WEB_DRIVER')
-        self.driver = webdriver.Chrome(executable_path=chromedriver, options=chromeOptions)
+        # chromedriver = settings.get('SELENIUM_CHROME_WEB_DRIVER')
+        # self.driver = webdriver.Chrome(executable_path=chromedriver, options=chromeOptions)
+        self.driver = webdriver.Chrome(options=chromeOptions)
 
     def parse(self, response):
         self.driver.get(self.login_url)
