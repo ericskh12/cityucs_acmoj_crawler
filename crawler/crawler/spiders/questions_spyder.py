@@ -2,6 +2,7 @@ import scrapy
 from selenium import webdriver
 import time
 from scrapy.utils.project import get_project_settings
+from selenium.webdriver.common.by import By
 
 class QuotesSpider(scrapy.Spider):
 
@@ -31,7 +32,7 @@ class QuotesSpider(scrapy.Spider):
 
     def parseQuestionPage(self, url):
         self.driver.get(url)
-        download_buttons = self.driver.find_elements_by_class_name('img-link')
+        download_buttons = self.driver.find_elements(By.CLASS_NAME, 'img-link')
         for download_button in download_buttons:
             download_button.click()
             break

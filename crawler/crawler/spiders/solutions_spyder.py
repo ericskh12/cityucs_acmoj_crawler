@@ -3,6 +3,7 @@ from selenium import webdriver
 import time
 from scrapy.utils.project import get_project_settings
 import os
+from selenium.webdriver.common.by import By
 
 class QuotesSpider(scrapy.Spider):
     name = "solutions"
@@ -24,9 +25,9 @@ class QuotesSpider(scrapy.Spider):
 
     def parse(self, response):
         self.driver.get(self.login_url)
-        username = self.driver.find_element_by_name('logon[contact]')
-        password = self.driver.find_element_by_name('logon[password]')
-        loginbutton = self.driver.find_element_by_class_name('button-confirm')
+        username = self.driver.find_element(By.NAME, 'logon[contact]')
+        password = self.driver.find_element(By.NAME ,'logon[password]')
+        loginbutton = self.driver.find_element(By.CLASS_NAME, 'button-confirm')
         username.send_keys(self.username)
         password.send_keys(self.password)
         loginbutton.click()
@@ -43,7 +44,7 @@ class QuotesSpider(scrapy.Spider):
         for question_number, submission in zip(questions_number, submissions):
             url = submission_url + submission + txt
             self.driver.get(url)
-            tag = self.driver.find_elements_by_tag_name('pre')
+            tag = self.driver.find_elements(By.TAG_NAME, 'pre')
             filename = os.path.join(self.download_directory,question_number+cpp)
             for t in tag:
                 with open(filename, 'w') as f:
