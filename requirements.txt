@@ -1,3 +1,7 @@
 Scrapy==2.6.2
 itemadapter==0.3.0
 selenium==4.8.0
+# need this version of pyopenssl to avoid SSL3 error
+pyOpenSSL==22.0.0
+# need this version of cryptography to avoid error "module 'lib' has no attribute 'OpenSSL_add_all_algorithms"
+cryptography==38.0.4
