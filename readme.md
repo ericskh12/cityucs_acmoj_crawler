@@ -18,20 +18,13 @@ Step 3: Edit configurations in ```configfile.py```
 
 Step 4: Before crawling, make sure your network environment has access to the online judge
 
-Step 5: Change your directory to the first /crawler/ folder 
-```
-cd crawler
-```
+Step 5: Change your directory to the first /crawler/ folder (```cd crawler```)
 
-Step 6: To download your questions, execute the command in the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
-```
-scrapy crawl questions
-```
 
-Step 7: To download your submissions, execute the command in the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
-```
-scrapy crawl solutions
-```
+Step 6: To download your questions, execute ```scrapy crawl questions``` inside the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
+
+
+Step 7: To download your submissions, execute ```scrapy crawl solutions``` inside the first /crawler/ directory to get your questions (Do not run in the child crawler folder!)
 
 After execution, your questions and submissions should now be downloaded in ```downloaded_files``` folder
 
